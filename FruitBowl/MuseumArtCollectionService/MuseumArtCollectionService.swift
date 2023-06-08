@@ -17,12 +17,18 @@ struct MuseumArtCollectionService: MuseumArtCollectionServiceProtocol {
     private let apiClient = APIClient()
     
     func getArtObject(withIds ids: Int...) async throws -> [ArtObject] {
-        let (object, imageData) = try await apiClient
-            .getArtObject(withId: ids[0])
-        
-        return [ArtObject(id: object.objectID,
-                          name: object.objectName,
-                          imageData: imageData)]
+        return try await withThrowingTaskGroup(of: (MuseumArtCollectionAPI.ArtObject, Data?).self, returning: [ArtObject].self) { taskGroup in
+            for id in ids {
+                taskGroup.addTask { try await apiClient.getArtObject(withId: id) }
+            }
+    
+            var artObjects = [ArtObject]()
+            for try await (artObject, data) in taskGroup {
+                artObjects.append(ArtObject(id: artObject.objectID, name: artObject.objectName, imageData: data))
+            }
+                                  
+            return artObjects
+        }
     }
     
     func getAvailableDepartments() async throws -> [Department] {

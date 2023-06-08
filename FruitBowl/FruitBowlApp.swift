@@ -26,9 +26,9 @@ struct FruitBowlApp: App {
                 Button("Download") {
                     Task {
                         do {
-                            let result = try await service.getArtObject(withIds: 430)
+                            let result = try await service.getArtObject(withIds: 430, 435)
                             
-                            fetchedArtObject = result[0]
+                            fetchedArtObject = result[1]
                         } catch {
                             
                         }
