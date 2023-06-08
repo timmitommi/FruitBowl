@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArtObject: Identifiable {
+struct ArtObject: Codable {
     let id: Int
     let name: String
     let imageData: Data?

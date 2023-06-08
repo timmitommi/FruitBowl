@@ -17,6 +17,8 @@ public protocol APIClientProtocol {
 }
 
 public struct APIClient: APIClientProtocol {
+    private let cache = ArtObjectCache()
+    
     public init() {}
     
     public func getAvailableArtObjects(filteredByDepartmentsIds ids: Int...) async throws -> AvailableArtObjects {
@@ -38,22 +40,28 @@ public struct APIClient: APIClientProtocol {
             return (artObject, nil)
         }
         
-        let (data, _) = try await URLSession.shared.data(from: primarySmallImageUrl)
+        let data = try await getData(forUrlRequest: URLRequest(url: primarySmallImageUrl))
         
         return (artObject, data)
-    }
-    
-    private func getArtObjectImage(withImageUrl url: URL) async throws -> Data {
-        let (data, _) = try await URLSession.shared.data(from: url)
-        
-        return data
     }
     
     private func getRequest<T: Decodable>(toEndpoint endpoint: Endpoint) async throws -> T {
         let urlRequest = endpoint.urlRequest
         
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        let data = try await getData(forUrlRequest: urlRequest)
         
         return try JSONDecoder().decode(T.self, from: data)
+    }
+    
+    private func getData(forUrlRequest urlRequest: URLRequest) async throws -> Data {
+        if let cachedData = try cache.getData(forUrlRequest: urlRequest) {
+            return cachedData
+        } else {
+            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            
+            cache.saveData(urlRequest: urlRequest, urlResponse: response, data: data)
+            
+            return data
+        }
     }
 }
