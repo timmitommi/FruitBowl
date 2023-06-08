@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AvailableArtObjects: Codable {
+public struct AvailableArtObjects: Codable {
     let total: Int
     let objectIDs: [Int]
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03357AFC2A325CAC0047213A /* ArtObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03357AFB2A325CAC0047213A /* ArtObject.swift */; };
+		03357AFE2A325CC50047213A /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03357AFD2A325CC50047213A /* Department.swift */; };
+		03357B002A325D350047213A /* ArtObject+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03357AFF2A325D350047213A /* ArtObject+SwiftUI.swift */; };
+		03D7E38C2A31FB1A00C9E918 /* MuseumArtCollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7E38B2A31FB1A00C9E918 /* MuseumArtCollectionService.swift */; };
 		03F75D4D2A3110F300CA0CF0 /* FruitBowlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */; };
 		03F75D4F2A3110F300CA0CF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F75D4E2A3110F300CA0CF0 /* ContentView.swift */; };
 		03F75D512A3110F300CA0CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F75D502A3110F300CA0CF0 /* Assets.xcassets */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03357AFB2A325CAC0047213A /* ArtObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObject.swift; sourceTree = "<group>"; };
+		03357AFD2A325CC50047213A /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
+		03357AFF2A325D350047213A /* ArtObject+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtObject+SwiftUI.swift"; sourceTree = "<group>"; };
+		03D7E38B2A31FB1A00C9E918 /* MuseumArtCollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuseumArtCollectionService.swift; sourceTree = "<group>"; };
 		03F75D492A3110F300CA0CF0 /* FruitBowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitBowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitBowlApp.swift; sourceTree = "<group>"; };
 		03F75D4E2A3110F300CA0CF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +43,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03357AFA2A325C9B0047213A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				03357AFB2A325CAC0047213A /* ArtObject.swift */,
+				03357AFF2A325D350047213A /* ArtObject+SwiftUI.swift */,
+				03357AFD2A325CC50047213A /* Department.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		03D7E38A2A31FA3300C9E918 /* MuseumArtCollectionService */ = {
+			isa = PBXGroup;
+			children = (
+				03357AFA2A325C9B0047213A /* Models */,
+				03D7E38B2A31FB1A00C9E918 /* MuseumArtCollectionService.swift */,
+			);
+			path = MuseumArtCollectionService;
+			sourceTree = "<group>";
+		};
 		03F75D402A3110F300CA0CF0 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +83,7 @@
 		03F75D4B2A3110F300CA0CF0 /* FruitBowl */ = {
 			isa = PBXGroup;
 			children = (
+				03D7E38A2A31FA3300C9E918 /* MuseumArtCollectionService */,
 				03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */,
 				03F75D4E2A3110F300CA0CF0 /* ContentView.swift */,
 				03F75D502A3110F300CA0CF0 /* Assets.xcassets */,
@@ -152,7 +180,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03357AFC2A325CAC0047213A /* ArtObject.swift in Sources */,
+				03D7E38C2A31FB1A00C9E918 /* MuseumArtCollectionService.swift in Sources */,
+				03357AFE2A325CC50047213A /* Department.swift in Sources */,
 				03F75D4F2A3110F300CA0CF0 /* ContentView.swift in Sources */,
+				03357B002A325D350047213A /* ArtObject+SwiftUI.swift in Sources */,
 				03F75D4D2A3110F300CA0CF0 /* FruitBowlApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

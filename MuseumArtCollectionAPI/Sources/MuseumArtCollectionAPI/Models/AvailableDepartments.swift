@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct AvailableDepartments: Codable {
-    let departments: [Department]
+public struct AvailableDepartments: Codable {
+    public let departments: [Department]
 }
 
-struct Department: Codable {
-    let departmentId: Int
-    let displayName: String
+public struct Department: Codable {
+    public let departmentId: Int
+    public let displayName: String
 }
 

@@ -13,6 +13,7 @@ enum Endpoint {
     case allAvailableObjects(filteredByDepartmentIds: [Int])
     case allAvailableDepartments
     case artObject(id: Int)
+    case search(with: SearchFilter)
     
     private var pathAndQueryItems: (path: String, queryItems: [URLQueryItem]?) {
         switch self {
@@ -30,6 +31,8 @@ enum Endpoint {
             return ("departments", nil)
         case .artObject(let id):
             return ("objects/\(String(id))", nil)
+        case .search(let searchFilter):
+            return ("search", searchFilter.queryItems)
         }
     }
     

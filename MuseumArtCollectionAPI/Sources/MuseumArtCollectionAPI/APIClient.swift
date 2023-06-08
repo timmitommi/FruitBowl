@@ -7,23 +7,46 @@
 
 import Foundation
 
-protocol APIClientProtocol {
+public typealias ArtObjectImage = Data
+
+public protocol APIClientProtocol {
     func getAvailableArtObjects(filteredByDepartmentsIds ids: Int...) async throws -> AvailableArtObjects
+    func getAvailableArtObjects(filteredBySearch filter: SearchFilter) async throws -> AvailableArtObjects
     func getAvailableDepartments() async throws -> AvailableDepartments
-    func getArtObject(withId id: Int) async throws -> ArtObject
+    func getArtObject(withId id: Int) async throws -> (ArtObject, ArtObjectImage?)
 }
 
-struct APIClient: APIClientProtocol {
-    func getAvailableArtObjects(filteredByDepartmentsIds ids: Int...) async throws -> AvailableArtObjects {
+public struct APIClient: APIClientProtocol {
+    public init() {}
+    
+    public func getAvailableArtObjects(filteredByDepartmentsIds ids: Int...) async throws -> AvailableArtObjects {
         return try await getRequest(toEndpoint: .allAvailableObjects(filteredByDepartmentIds: ids))
     }
     
-    func getAvailableDepartments() async throws -> AvailableDepartments {
+    public func getAvailableArtObjects(filteredBySearch filter: SearchFilter) async throws -> AvailableArtObjects {
+        return try await getRequest(toEndpoint: .search(with: filter))
+    }
+    
+    public func getAvailableDepartments() async throws -> AvailableDepartments {
         return try await getRequest(toEndpoint: .allAvailableDepartments)
     }
     
-    func getArtObject(withId id: Int) async throws -> ArtObject {
-        return try await getRequest(toEndpoint: .artObject(id: id))
+    public func getArtObject(withId id: Int) async throws -> (ArtObject, ArtObjectImage?) {
+        let artObject: ArtObject = try await getRequest(toEndpoint: .artObject(id: id))
+        
+        guard let primarySmallImageUrl = URL(string: artObject.primaryImageSmall) else {
+            return (artObject, nil)
+        }
+        
+        let (data, _) = try await URLSession.shared.data(from: primarySmallImageUrl)
+        
+        return (artObject, data)
+    }
+    
+    private func getArtObjectImage(withImageUrl url: URL) async throws -> Data {
+        let (data, _) = try await URLSession.shared.data(from: url)
+        
+        return data
     }
     
     private func getRequest<T: Decodable>(toEndpoint endpoint: Endpoint) async throws -> T {
