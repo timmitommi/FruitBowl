@@ -11,6 +11,7 @@
 		03F75D4F2A3110F300CA0CF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F75D4E2A3110F300CA0CF0 /* ContentView.swift */; };
 		03F75D512A3110F300CA0CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F75D502A3110F300CA0CF0 /* Assets.xcassets */; };
 		03F75D542A3110F300CA0CF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F75D532A3110F300CA0CF0 /* Preview Assets.xcassets */; };
+		03F75D5F2A3115E500CA0CF0 /* MuseumArtCollectionAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 03F75D5E2A3115E500CA0CF0 /* MuseumArtCollectionAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		03F75D4E2A3110F300CA0CF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		03F75D502A3110F300CA0CF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03F75D532A3110F300CA0CF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		03F75D5A2A31157800CA0CF0 /* MuseumArtCollectionAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MuseumArtCollectionAPI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03F75D5F2A3115E500CA0CF0 /* MuseumArtCollectionAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,8 +38,10 @@
 		03F75D402A3110F300CA0CF0 = {
 			isa = PBXGroup;
 			children = (
+				03F75D5A2A31157800CA0CF0 /* MuseumArtCollectionAPI */,
 				03F75D4B2A3110F300CA0CF0 /* FruitBowl */,
 				03F75D4A2A3110F300CA0CF0 /* Products */,
+				03F75D5B2A3115A200CA0CF0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +72,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		03F75D5B2A3115A200CA0CF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,6 +95,9 @@
 			dependencies = (
 			);
 			name = FruitBowl;
+			packageProductDependencies = (
+				03F75D5E2A3115E500CA0CF0 /* MuseumArtCollectionAPI */,
+			);
 			productName = FruitBowl;
 			productReference = 03F75D492A3110F300CA0CF0 /* FruitBowl.app */;
 			productType = "com.apple.product-type.application";
@@ -344,6 +359,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		03F75D5E2A3115E500CA0CF0 /* MuseumArtCollectionAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MuseumArtCollectionAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 03F75D412A3110F300CA0CF0 /* Project object */;
 }
