@@ -19,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0326B77A2A33B07100D746FC /* ResRobotAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ResRobotAPI; sourceTree = "<group>"; };
 		03357AFB2A325CAC0047213A /* ArtObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObject.swift; sourceTree = "<group>"; };
 		03357AFD2A325CC50047213A /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		03357AFF2A325D350047213A /* ArtObject+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtObject+SwiftUI.swift"; sourceTree = "<group>"; };
@@ -65,6 +66,7 @@
 		03F75D402A3110F300CA0CF0 = {
 			isa = PBXGroup;
 			children = (
+				0326B77A2A33B07100D746FC /* ResRobotAPI */,
 				03F75D5A2A31157800CA0CF0 /* MuseumArtCollectionAPI */,
 				03F75D4B2A3110F300CA0CF0 /* FruitBowl */,
 				03F75D4A2A3110F300CA0CF0 /* Products */,

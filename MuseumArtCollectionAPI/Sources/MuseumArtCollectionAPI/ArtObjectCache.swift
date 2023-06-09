@@ -10,7 +10,7 @@ import Foundation
 struct ArtObjectCache {
     let cache = URLCache.shared
     
-    func getData(forUrlRequest urlRequest: URLRequest) throws -> Data? {
+    func getData(forUrlRequest urlRequest: URLRequest) -> Data? {
         cache.cachedResponse(for: urlRequest)?.data
     }
     

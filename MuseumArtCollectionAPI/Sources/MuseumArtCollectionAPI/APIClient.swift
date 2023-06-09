@@ -54,7 +54,7 @@ public struct APIClient: APIClientProtocol {
     }
     
     private func getData(forUrlRequest urlRequest: URLRequest) async throws -> Data {
-        if let cachedData = try cache.getData(forUrlRequest: urlRequest) {
+        if let cachedData = cache.getData(forUrlRequest: urlRequest) {
             return cachedData
         } else {
             let (data, response) = try await URLSession.shared.data(for: urlRequest)
