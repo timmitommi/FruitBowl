@@ -12,6 +12,8 @@
 		0326B7832A34A6F100D746FC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B7822A34A6F100D746FC /* Station.swift */; };
 		0326B7852A34A72400D746FC /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B7842A34A72400D746FC /* Departure.swift */; };
 		0326B7882A34A79400D746FC /* DateFormatter+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B7872A34A79400D746FC /* DateFormatter+extensions.swift */; };
+		0326B78A2A35191C00D746FC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B7892A35191C00D746FC /* SearchView.swift */; };
+		0326B78D2A351B4D00D746FC /* EnvironmentValues+ResRobotAPIServiceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B78C2A351B4D00D746FC /* EnvironmentValues+ResRobotAPIServiceKey.swift */; };
 		03F75D4D2A3110F300CA0CF0 /* FruitBowlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */; };
 		03F75D4F2A3110F300CA0CF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F75D4E2A3110F300CA0CF0 /* ContentView.swift */; };
 		03F75D512A3110F300CA0CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F75D502A3110F300CA0CF0 /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 		0326B7822A34A6F100D746FC /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		0326B7842A34A72400D746FC /* Departure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
 		0326B7872A34A79400D746FC /* DateFormatter+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+extensions.swift"; sourceTree = "<group>"; };
+		0326B7892A35191C00D746FC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		0326B78C2A351B4D00D746FC /* EnvironmentValues+ResRobotAPIServiceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ResRobotAPIServiceKey.swift"; sourceTree = "<group>"; };
 		03F75D492A3110F300CA0CF0 /* FruitBowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitBowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitBowlApp.swift; sourceTree = "<group>"; };
 		03F75D4E2A3110F300CA0CF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +81,14 @@
 			path = "Foundation Extensions";
 			sourceTree = "<group>";
 		};
+		0326B78B2A351B1600D746FC /* EnvironmentValues Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0326B78C2A351B4D00D746FC /* EnvironmentValues+ResRobotAPIServiceKey.swift */,
+			);
+			path = "EnvironmentValues Extensions";
+			sourceTree = "<group>";
+		};
 		03F75D402A3110F300CA0CF0 = {
 			isa = PBXGroup;
 			children = (
@@ -98,10 +110,12 @@
 		03F75D4B2A3110F300CA0CF0 /* FruitBowl */ = {
 			isa = PBXGroup;
 			children = (
+				0326B78B2A351B1600D746FC /* EnvironmentValues Extensions */,
 				0326B7862A34A75F00D746FC /* Foundation Extensions */,
 				0326B77D2A34A69C00D746FC /* Services */,
 				03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */,
 				03F75D4E2A3110F300CA0CF0 /* ContentView.swift */,
+				0326B7892A35191C00D746FC /* SearchView.swift */,
 				03F75D502A3110F300CA0CF0 /* Assets.xcassets */,
 				03F75D522A3110F300CA0CF0 /* Preview Content */,
 			);
@@ -199,6 +213,8 @@
 				03F75D4F2A3110F300CA0CF0 /* ContentView.swift in Sources */,
 				0326B77F2A34A6B000D746FC /* ResRobotAPIService.swift in Sources */,
 				0326B7832A34A6F100D746FC /* Station.swift in Sources */,
+				0326B78A2A35191C00D746FC /* SearchView.swift in Sources */,
+				0326B78D2A351B4D00D746FC /* EnvironmentValues+ResRobotAPIServiceKey.swift in Sources */,
 				03F75D4D2A3110F300CA0CF0 /* FruitBowlApp.swift in Sources */,
 				0326B7882A34A79400D746FC /* DateFormatter+extensions.swift in Sources */,
 				0326B7852A34A72400D746FC /* Departure.swift in Sources */,
