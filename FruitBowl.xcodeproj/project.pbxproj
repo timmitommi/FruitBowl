@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0326B77C2A33DCDD00D746FC /* ResRobotAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 0326B77B2A33DCDD00D746FC /* ResRobotAPI */; };
+		0326B77F2A34A6B000D746FC /* ResRobotAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B77E2A34A6B000D746FC /* ResRobotAPIService.swift */; };
+		0326B7832A34A6F100D746FC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B7822A34A6F100D746FC /* Station.swift */; };
+		0326B7852A34A72400D746FC /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B7842A34A72400D746FC /* Departure.swift */; };
+		0326B7882A34A79400D746FC /* DateFormatter+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B7872A34A79400D746FC /* DateFormatter+extensions.swift */; };
 		03F75D4D2A3110F300CA0CF0 /* FruitBowlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */; };
 		03F75D4F2A3110F300CA0CF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F75D4E2A3110F300CA0CF0 /* ContentView.swift */; };
 		03F75D512A3110F300CA0CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F75D502A3110F300CA0CF0 /* Assets.xcassets */; };
@@ -16,6 +20,10 @@
 
 /* Begin PBXFileReference section */
 		0326B77A2A33B07100D746FC /* ResRobotAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ResRobotAPI; sourceTree = "<group>"; };
+		0326B77E2A34A6B000D746FC /* ResRobotAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResRobotAPIService.swift; sourceTree = "<group>"; };
+		0326B7822A34A6F100D746FC /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		0326B7842A34A72400D746FC /* Departure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
+		0326B7872A34A79400D746FC /* DateFormatter+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+extensions.swift"; sourceTree = "<group>"; };
 		03F75D492A3110F300CA0CF0 /* FruitBowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitBowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitBowlApp.swift; sourceTree = "<group>"; };
 		03F75D4E2A3110F300CA0CF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +43,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0326B77D2A34A69C00D746FC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0326B7802A34A6B800D746FC /* ResRobotAPI */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0326B7802A34A6B800D746FC /* ResRobotAPI */ = {
+			isa = PBXGroup;
+			children = (
+				0326B7812A34A6DA00D746FC /* Models */,
+				0326B77E2A34A6B000D746FC /* ResRobotAPIService.swift */,
+			);
+			path = ResRobotAPI;
+			sourceTree = "<group>";
+		};
+		0326B7812A34A6DA00D746FC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0326B7822A34A6F100D746FC /* Station.swift */,
+				0326B7842A34A72400D746FC /* Departure.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0326B7862A34A75F00D746FC /* Foundation Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0326B7872A34A79400D746FC /* DateFormatter+extensions.swift */,
+			);
+			path = "Foundation Extensions";
+			sourceTree = "<group>";
+		};
 		03F75D402A3110F300CA0CF0 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +98,8 @@
 		03F75D4B2A3110F300CA0CF0 /* FruitBowl */ = {
 			isa = PBXGroup;
 			children = (
+				0326B7862A34A75F00D746FC /* Foundation Extensions */,
+				0326B77D2A34A69C00D746FC /* Services */,
 				03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */,
 				03F75D4E2A3110F300CA0CF0 /* ContentView.swift */,
 				03F75D502A3110F300CA0CF0 /* Assets.xcassets */,
@@ -153,7 +197,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F75D4F2A3110F300CA0CF0 /* ContentView.swift in Sources */,
+				0326B77F2A34A6B000D746FC /* ResRobotAPIService.swift in Sources */,
+				0326B7832A34A6F100D746FC /* Station.swift in Sources */,
 				03F75D4D2A3110F300CA0CF0 /* FruitBowlApp.swift in Sources */,
+				0326B7882A34A79400D746FC /* DateFormatter+extensions.swift in Sources */,
+				0326B7852A34A72400D746FC /* Departure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

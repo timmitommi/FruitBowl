@@ -15,14 +15,7 @@ struct DeparturesRootResponse: Codable {
     }
 }
     
-public struct Departure: Codable {
-    private static let dateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        return dateFormatter
-    }()
-    
+public struct Departure: Codable, Hashable {
     public let direction: String
     public let stopName: String
     public let stopId: String
@@ -51,17 +44,5 @@ public struct Departure: Codable {
         self.date = try container.decode(String.self, forKey: .date)
         self.time = try container.decode(String.self, forKey: .time)
         self.realTime = try container.decodeIfPresent(String.self, forKey: .realTime)
-    }
-    
-    public var departureDate: Date? {
-        return Self.dateFormatter.date(from: "\(date) \(time)")
-    }
-    
-    public var realDepartureDate: Date? {
-        guard let realTime else {
-            return nil
-        }
-        
-        return Self.dateFormatter.date(from: "\(date) \(realTime)")
     }
 }

@@ -8,32 +8,24 @@
 import SwiftUI
 import ResRobotAPI
 
-fileprivate let apiKey = ProcessInfo.processInfo.environment["API_KEY"]!
-
 struct ContentView: View {
-    private let resRobotAPIClient = ResRobotAPIClient(apiKey: apiKey)
+    private let resRobotAPIService = ResRobotAPIService()
+    
+    @State var results: [Station]?
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            if let results {
+                List {
+                    ForEach(results) { station in
+                        Text(station.name)
+                    }
+                }
+            }
         }
-        .padding()
         .task {
             do {
-                let sundbyberg = try await resRobotAPIClient.searchForStation(withName: "Sundbyberg Centrum", maxNumberOfResults: 1, searchMethod: .exactSearch).first
-                
-                guard let sundbyberg else {
-                    return
-                }
-                
-                print(sundbyberg)
-                
-                let result = try await resRobotAPIClient.getDeparturesForStation(withId: sundbyberg.id, duration: 20)
-                
-                print(result)
+                results = try await resRobotAPIService.searchForStation(withName: "Sundbyberg")
             } catch {
                 print(error)
             }
