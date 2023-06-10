@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum SearchMethod {
+public enum StopLookUpQuerySearchMethod {
     case exactSearch
     case fuzzySearch
 }
@@ -21,7 +21,7 @@ struct StopLookUpQuery: APIQuery {
         let input: String
         let maxNo: String
         
-        init(accessId: String, input: String, maxNo: Int, searchMethod: SearchMethod) {
+        init(accessId: String, input: String, maxNo: Int, searchMethod: StopLookUpQuerySearchMethod) {
             self.accessId = accessId
             self.input = "\(input)\(searchMethod == .fuzzySearch ? "?" : "")"
             self.maxNo = String(maxNo)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class APIClient {
+public final class ResRobotAPIClient {
     private static let baseURL = URL(string: "https://api.resrobot.se/v2.1/")!
     
     private let apiKey: String
@@ -18,13 +18,25 @@ public final class APIClient {
         self.urlRequestBuilder = .init(baseURL: Self.baseURL)
     }
     
-    public func searchForStation(withName name: String, maxNumberOfResults: Int, searchMethod: SearchMethod) async throws -> [Station] {
+    public func searchForStation(withName name: String, maxNumberOfResults: Int, searchMethod: StopLookUpQuerySearchMethod) async throws -> [Station] {
         let query = StopLookUpQuery(parameters: .init(accessId: apiKey, input: name, maxNo: maxNumberOfResults, searchMethod: searchMethod))
         
-        let request = urlRequestBuilder.buildURLRequest(forQuery: query)
-        let response: StationRootResponse = try await getData(forUrlRequest: request)
+        let response: StationRootResponse = try await getRequest(forQuery: query)
         
         return response.stopLocationOrCoordLocation.compactMap(\.stopLocation)
+    }
+    
+    public func getDeparturesForStation(withId id: String, duration: Int) async throws -> [Departure] {
+        let query = TimetableQuery(queryMethod: .departures, parameters: .init(accessId: apiKey, id: id, duration: duration))
+        
+        let response: DeparturesRootResponse = try await getRequest(forQuery: query)
+        
+        return response.departure
+    }
+    
+    private func getRequest<Query: APIQuery, T: Decodable>(forQuery query: Query) async throws -> T {
+        let request = urlRequestBuilder.buildURLRequest(forQuery: query)
+        return try await getData(forUrlRequest: request)
     }
     
     private func getData<T: Decodable>(forUrlRequest urlRequest: URLRequest) async throws -> T {

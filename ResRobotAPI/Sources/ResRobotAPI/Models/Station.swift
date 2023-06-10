@@ -26,10 +26,18 @@ struct StationResponse: Codable {
 
 public struct Station: Codable {
     public let id: String
-    public let extId: String
     public let name: String
     public let lon: Double
     public let lat: Double
     public let weight: Int
     public let products: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "extId"
+        case name
+        case lon
+        case lat
+        case weight
+        case products
+    }
 }
