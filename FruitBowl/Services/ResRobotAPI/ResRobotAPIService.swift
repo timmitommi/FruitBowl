@@ -8,8 +8,6 @@
 import Foundation
 import ResRobotAPI
 
-fileprivate let apiKey = ProcessInfo.processInfo.environment["API_KEY"]!
-
 protocol ResRobotAPIServiceProtocol {
     func searchForStation(withName name: String, numberOfResults: Int) async throws -> [Station]
     func getNearbyStations(forCoordinates coordinates: Coordinates, radius: Int, numberOfResults: Int) async throws -> [Station]
@@ -17,7 +15,7 @@ protocol ResRobotAPIServiceProtocol {
 }
 
 final class ResRobotAPIService: ResRobotAPIServiceProtocol {
-    private let apiClient = ResRobotAPIClient(apiKey: apiKey)
+    private let apiClient = ResRobotAPIClient(apiKey: Configuration.resRobotApiKey)
     
     func searchForStation(withName name: String, numberOfResults: Int = 5) async throws -> [Station] {
         let stations = try await apiClient.searchForStation(withName: name, maxNumberOfResults: numberOfResults, searchMethod: .fuzzySearch)

@@ -17,6 +17,7 @@
 		0326B78F2A35C42400D746FC /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B78E2A35C42400D746FC /* Coordinates.swift */; };
 		03D48CAD2A35E2CF00C08392 /* CoreLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D48CAC2A35E2CF00C08392 /* CoreLocationService.swift */; };
 		03D48CAF2A35E42B00C08392 /* CoreLocationServiceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D48CAE2A35E42B00C08392 /* CoreLocationServiceKey.swift */; };
+		03D48CB32A362E7300C08392 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D48CB22A362E7300C08392 /* Configuration.swift */; };
 		03F75D4D2A3110F300CA0CF0 /* FruitBowlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */; };
 		03F75D4F2A3110F300CA0CF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F75D4E2A3110F300CA0CF0 /* ContentView.swift */; };
 		03F75D512A3110F300CA0CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F75D502A3110F300CA0CF0 /* Assets.xcassets */; };
@@ -34,6 +35,9 @@
 		0326B78E2A35C42400D746FC /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		03D48CAC2A35E2CF00C08392 /* CoreLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationService.swift; sourceTree = "<group>"; };
 		03D48CAE2A35E42B00C08392 /* CoreLocationServiceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationServiceKey.swift; sourceTree = "<group>"; };
+		03D48CB02A362BF600C08392 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		03D48CB12A362DE100C08392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		03D48CB22A362E7300C08392 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		03F75D492A3110F300CA0CF0 /* FruitBowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitBowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitBowlApp.swift; sourceTree = "<group>"; };
 		03F75D4E2A3110F300CA0CF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		03F75D402A3110F300CA0CF0 = {
 			isa = PBXGroup;
 			children = (
+				03D48CB02A362BF600C08392 /* Config.xcconfig */,
 				0326B77A2A33B07100D746FC /* ResRobotAPI */,
 				03F75D4B2A3110F300CA0CF0 /* FruitBowl */,
 				03F75D4A2A3110F300CA0CF0 /* Products */,
@@ -127,11 +132,13 @@
 		03F75D4B2A3110F300CA0CF0 /* FruitBowl */ = {
 			isa = PBXGroup;
 			children = (
+				03D48CB12A362DE100C08392 /* Info.plist */,
 				0326B78B2A351B1600D746FC /* EnvironmentValues Extensions */,
 				0326B7862A34A75F00D746FC /* Foundation Extensions */,
 				0326B77D2A34A69C00D746FC /* Services */,
 				03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */,
 				03F75D4E2A3110F300CA0CF0 /* ContentView.swift */,
+				03D48CB22A362E7300C08392 /* Configuration.swift */,
 				0326B7892A35191C00D746FC /* SearchView.swift */,
 				03F75D502A3110F300CA0CF0 /* Assets.xcassets */,
 				03F75D522A3110F300CA0CF0 /* Preview Content */,
@@ -228,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F75D4F2A3110F300CA0CF0 /* ContentView.swift in Sources */,
+				03D48CB32A362E7300C08392 /* Configuration.swift in Sources */,
 				0326B77F2A34A6B000D746FC /* ResRobotAPIService.swift in Sources */,
 				0326B7832A34A6F100D746FC /* Station.swift in Sources */,
 				03D48CAD2A35E2CF00C08392 /* CoreLocationService.swift in Sources */,
@@ -296,6 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -353,6 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -365,6 +375,7 @@
 		};
 		03F75D582A3110F300CA0CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03D48CB02A362BF600C08392 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -374,9 +385,13 @@
 				DEVELOPMENT_TEAM = 464ZN224W4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To be able to find closest stations to your location";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To be able to find closest stations to your location";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To be able to find closest stations to your location";
+				INFOPLIST_FILE = FruitBowl/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To find the closest stations";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To find the closest stations";
+				INFOPLIST_KEY_NSLocationTemporaryUsageDescriptionDictionary = "To find the closest stations";
+				INFOPLIST_KEY_NSLocationUsageDescription = "To find the closest stations";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To find the closest stations";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -398,6 +413,7 @@
 		};
 		03F75D592A3110F300CA0CF0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03D48CB02A362BF600C08392 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -407,9 +423,13 @@
 				DEVELOPMENT_TEAM = 464ZN224W4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To be able to find closest stations to your location";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To be able to find closest stations to your location";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To be able to find closest stations to your location";
+				INFOPLIST_FILE = FruitBowl/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To find the closest stations";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To find the closest stations";
+				INFOPLIST_KEY_NSLocationTemporaryUsageDescriptionDictionary = "To find the closest stations";
+				INFOPLIST_KEY_NSLocationUsageDescription = "To find the closest stations";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To find the closest stations";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
