@@ -14,7 +14,6 @@ struct CoreLocationServiceKey: EnvironmentKey {
 
 extension EnvironmentValues {
     var coreLocationService: CoreLocationService {
-        get { self[CoreLocationServiceKey.self] }
-        set { self[CoreLocationServiceKey.self] = newValue }
+        self[CoreLocationServiceKey.self]
     }
 }

@@ -14,7 +14,6 @@ struct ResRobotAPIServiceKey: EnvironmentKey {
 
 extension EnvironmentValues {
     var resRobotAPIService: ResRobotAPIService {
-        get { self[ResRobotAPIServiceKey.self] }
-        set { self[ResRobotAPIServiceKey.self] = newValue }
+        self[ResRobotAPIServiceKey.self]
     }
 }
