@@ -14,6 +14,15 @@ struct SearchViewContainer: View {
         SearchView {
             return try await resRobotAPIService.searchForStation(withName: $0)
         }
+        .task {
+            do {
+                let result = try await resRobotAPIService.getNearbyStations(forCoordinates: Coordinates(lat: 59.330136, lon: 18.158151))
+                
+                print(result[0].name)
+            } catch {
+                print(error)
+            }
+        }
     }
 }
 
@@ -67,6 +76,6 @@ struct SearchView: View {
 
 #Preview {
     SearchView { _ in
-        return [Station(id: "test", name: "test", lon: 1, lat: 1, weight: 1, products: 1)]
+        return [Station(id: "test", name: "test", lon: 1, lat: 1, weight: 1, products: 1, distance: 1)]
     }
 }

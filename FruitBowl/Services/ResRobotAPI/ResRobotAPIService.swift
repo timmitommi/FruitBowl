@@ -12,6 +12,7 @@ fileprivate let apiKey = ProcessInfo.processInfo.environment["API_KEY"]!
 
 protocol ResRobotAPIServiceProtocol {
     func searchForStation(withName name: String, numberOfResults: Int) async throws -> [Station]
+    func getNearbyStations(forCoordinates coordinates: Coordinates, radius: Int, numberOfResults: Int) async throws -> [Station]
     func getDepartures(fromStationWithId id: String, minutesFromNow: Int) async throws -> [Departure]
 }
 
@@ -29,6 +30,12 @@ final class ResRobotAPIService: ResRobotAPIServiceProtocol {
         
         return departures.map { Departure(from: $0) }
     }
+    
+    func getNearbyStations(forCoordinates coordinates: Coordinates, radius: Int = 1000, numberOfResults: Int = 5) async throws -> [Station] {
+        let stations = try await apiClient.getNearbyStations(forCoordinates: ResRobotAPI.Coordinates(lat: coordinates.lat, lon: coordinates.lon), maxNumberOfResults: numberOfResults, radius: radius)
+
+        return stations.map { Station(from: $0) }
+    }
 }
 
 private extension Station {
@@ -39,6 +46,7 @@ private extension Station {
         self.weight = apiStation.weight
         self.lat = apiStation.lat
         self.lon = apiStation.lon
+        self.distance = apiStation.distance
     }
 }
 

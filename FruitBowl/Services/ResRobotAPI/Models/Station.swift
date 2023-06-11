@@ -14,4 +14,5 @@ struct Station: Identifiable {
     let lat: Double
     let weight: Int
     let products: Int
+    let distance: Int
 }

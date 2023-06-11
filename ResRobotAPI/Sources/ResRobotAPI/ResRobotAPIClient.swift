@@ -26,6 +26,14 @@ public final class ResRobotAPIClient {
         return response.stopLocationOrCoordLocation.compactMap(\.stopLocation)
     }
     
+    public func getNearbyStations(forCoordinates coordinates: Coordinates, maxNumberOfResults: Int, radius: Int) async throws -> [Station]{
+        let query = NearbyStopsQuery(parameters: .init(accessId: apiKey, coordinates: coordinates, radius: radius, maxNo: maxNumberOfResults))
+        
+        let response: StationRootResponse = try await getRequest(forQuery: query)
+        
+        return response.stopLocationOrCoordLocation.compactMap(\.stopLocation)
+    }
+    
     public func getDeparturesForStation(withId id: String, duration: Int) async throws -> [Departure] {
         let query = TimetableQuery(queryMethod: .departures, parameters: .init(accessId: apiKey, id: id, duration: duration))
         
@@ -41,6 +49,8 @@ public final class ResRobotAPIClient {
     
     private func getData<T: Decodable>(forUrlRequest urlRequest: URLRequest) async throws -> T {
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        
+        prettyPrint(data: data)
         
         return try JSONDecoder().decode(T.self, from: data)
     }
