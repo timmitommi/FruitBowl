@@ -9,18 +9,24 @@ import SwiftUI
 
 struct SearchViewContainer: View {
     @Environment(\.resRobotAPIService) private var resRobotAPIService
+    @Environment(\.coreLocationService) private var coreLocationService
+    @State private var closeStations: [Station]?
     
     var body: some View {
-        SearchView {
+        SearchView(closeStations: closeStations) {
             return try await resRobotAPIService.searchForStation(withName: $0)
         }
-        .task {
-            do {
-                let result = try await resRobotAPIService.getNearbyStations(forCoordinates: Coordinates(lat: 59.330136, lon: 18.158151))
-                
-                print(result[0].name)
-            } catch {
-                print(error)
+        .onReceive(coreLocationService.$latestUserCoordinates) { coordinates in
+            guard let coordinates else {
+                return
+            }
+            
+            Task {
+                do {
+                    closeStations = try await resRobotAPIService.getNearbyStations(forCoordinates: coordinates)
+                } catch {
+                    print(error)
+                }
             }
         }
     }
@@ -33,6 +39,7 @@ struct SearchView: View {
         case error(Error)
     }
     
+    var closeStations: [Station]?
     let searchAction: @MainActor (String) async throws -> [Station]
 
     @State private var searchText = ""
@@ -45,6 +52,8 @@ struct SearchView: View {
             TextField("Search for a station", text: $searchText)
                 .focused($searchTextFieldIsFocused)
                 .onSubmit {
+                    searchResult = .loading
+                    
                     Task {
                         do {
                             let stations = try await searchAction(searchText)
@@ -55,6 +64,16 @@ struct SearchView: View {
                         }
                     }
                 }
+            
+            if let closeStations {
+                VStack {
+                    Text("Close stations")
+                    
+                    ForEach(closeStations) {
+                        Text($0.name)
+                    }
+                }
+            }
             
             List {
                 if let searchResult {
@@ -74,8 +93,10 @@ struct SearchView: View {
     }
 }
 
-#Preview {
-    SearchView { _ in
-        return [Station(id: "test", name: "test", lon: 1, lat: 1, weight: 1, products: 1, distance: 1)]
+struct SearchViewPreview: PreviewProvider {
+    static var previews: some View {
+        SearchView { _ in
+            return [Station(id: "test", name: "test", lon: 1, lat: 1, weight: 1, products: 1, distance: 1)]
+        }
     }
 }

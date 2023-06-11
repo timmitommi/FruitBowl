@@ -50,8 +50,6 @@ public final class ResRobotAPIClient {
     private func getData<T: Decodable>(forUrlRequest urlRequest: URLRequest) async throws -> T {
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         
-        prettyPrint(data: data)
-        
         return try JSONDecoder().decode(T.self, from: data)
     }
     

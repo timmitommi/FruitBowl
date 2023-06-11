@@ -9,14 +9,13 @@ import SwiftUI
 import ResRobotAPI
 
 struct ContentView: View {
-    private let resRobotAPIService = ResRobotAPIService()
-    
     var body: some View {
         SearchViewContainer()
-            .environment(\.resRobotAPIService, resRobotAPIService)
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentViewPreview: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }

@@ -15,6 +15,8 @@
 		0326B78A2A35191C00D746FC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B7892A35191C00D746FC /* SearchView.swift */; };
 		0326B78D2A351B4D00D746FC /* EnvironmentValues+ResRobotAPIServiceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B78C2A351B4D00D746FC /* EnvironmentValues+ResRobotAPIServiceKey.swift */; };
 		0326B78F2A35C42400D746FC /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0326B78E2A35C42400D746FC /* Coordinates.swift */; };
+		03D48CAD2A35E2CF00C08392 /* CoreLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D48CAC2A35E2CF00C08392 /* CoreLocationService.swift */; };
+		03D48CAF2A35E42B00C08392 /* CoreLocationServiceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D48CAE2A35E42B00C08392 /* CoreLocationServiceKey.swift */; };
 		03F75D4D2A3110F300CA0CF0 /* FruitBowlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */; };
 		03F75D4F2A3110F300CA0CF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F75D4E2A3110F300CA0CF0 /* ContentView.swift */; };
 		03F75D512A3110F300CA0CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F75D502A3110F300CA0CF0 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		0326B7892A35191C00D746FC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		0326B78C2A351B4D00D746FC /* EnvironmentValues+ResRobotAPIServiceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ResRobotAPIServiceKey.swift"; sourceTree = "<group>"; };
 		0326B78E2A35C42400D746FC /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		03D48CAC2A35E2CF00C08392 /* CoreLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationService.swift; sourceTree = "<group>"; };
+		03D48CAE2A35E42B00C08392 /* CoreLocationServiceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationServiceKey.swift; sourceTree = "<group>"; };
 		03F75D492A3110F300CA0CF0 /* FruitBowl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitBowl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F75D4C2A3110F300CA0CF0 /* FruitBowlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitBowlApp.swift; sourceTree = "<group>"; };
 		03F75D4E2A3110F300CA0CF0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +56,7 @@
 		0326B77D2A34A69C00D746FC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				03D48CAB2A35E2C200C08392 /* CoreLocationService */,
 				0326B7802A34A6B800D746FC /* ResRobotAPI */,
 			);
 			path = Services;
@@ -88,8 +93,17 @@
 			isa = PBXGroup;
 			children = (
 				0326B78C2A351B4D00D746FC /* EnvironmentValues+ResRobotAPIServiceKey.swift */,
+				03D48CAE2A35E42B00C08392 /* CoreLocationServiceKey.swift */,
 			);
 			path = "EnvironmentValues Extensions";
+			sourceTree = "<group>";
+		};
+		03D48CAB2A35E2C200C08392 /* CoreLocationService */ = {
+			isa = PBXGroup;
+			children = (
+				03D48CAC2A35E2CF00C08392 /* CoreLocationService.swift */,
+			);
+			path = CoreLocationService;
 			sourceTree = "<group>";
 		};
 		03F75D402A3110F300CA0CF0 = {
@@ -216,11 +230,13 @@
 				03F75D4F2A3110F300CA0CF0 /* ContentView.swift in Sources */,
 				0326B77F2A34A6B000D746FC /* ResRobotAPIService.swift in Sources */,
 				0326B7832A34A6F100D746FC /* Station.swift in Sources */,
+				03D48CAD2A35E2CF00C08392 /* CoreLocationService.swift in Sources */,
 				0326B78A2A35191C00D746FC /* SearchView.swift in Sources */,
 				0326B78D2A351B4D00D746FC /* EnvironmentValues+ResRobotAPIServiceKey.swift in Sources */,
 				03F75D4D2A3110F300CA0CF0 /* FruitBowlApp.swift in Sources */,
 				0326B78F2A35C42400D746FC /* Coordinates.swift in Sources */,
 				0326B7882A34A79400D746FC /* DateFormatter+extensions.swift in Sources */,
+				03D48CAF2A35E42B00C08392 /* CoreLocationServiceKey.swift in Sources */,
 				0326B7852A34A72400D746FC /* Departure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,11 +374,15 @@
 				DEVELOPMENT_TEAM = 464ZN224W4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To be able to find closest stations to your location";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To be able to find closest stations to your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To be able to find closest stations to your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -387,11 +407,15 @@
 				DEVELOPMENT_TEAM = 464ZN224W4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To be able to find closest stations to your location";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "To be able to find closest stations to your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To be able to find closest stations to your location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -31,7 +31,7 @@ public struct Station: Codable {
     public let lat: Double
     public let weight: Int
     public let products: Int
-    public let distance: Int
+    public let distance: Int?
     
     enum CodingKeys: String, CodingKey {
         case id = "extId"
